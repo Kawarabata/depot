@@ -1,0 +1,26 @@
+<% if notice %>
+  <aside id="notice"><%= notice %></aside>
+<% end %>
+<% if @count > 5 %>
+  <%= @count %>
+<% end %>
+<h1>Your Pragmatic Catalog</h1>
+<ul class="catalog">
+  <% cache @products do %>  <%# @products全体をキャッシュ %>
+    <% @products.each do |product| %>
+      <% cache product do %> <%# 一部のproductに変更があってもそれ以外にはキャッシュを使う %>
+        <li>
+          <%= image_tag(product.image_url) %> <%# image_tagメソッドはimgを生成し、引数をsrcとする %>
+          <h2><%= product.title %></h2>
+          <p>
+            <%= sanitize(product.description) %> <%# sanitizeメソッドでhtmlを安全に使える %>
+          </p>
+          <div class="price">
+            <%= number_to_currency(product.price) %>
+            <%= button_to 'Add to Cart', line_items_path(product_id: product)%> <%# 「buttonのデフォルトのHTTPメソッドはPOST」という規約 %>
+          </div>
+        </li>
+      <%end%>
+    <%end%>
+  <% end %>
+</ul>
