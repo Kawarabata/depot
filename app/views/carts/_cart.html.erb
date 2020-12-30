@@ -1,0 +1,16 @@
+<article>
+  <% if notice %>
+    <aside id="notoice"><%= notice %></aside>
+  <% end %>
+  <h2>Your Cart</h2>
+  <table>
+    <%= render(cart.line_items) %> <%# LineItemオブジェクトをrenderに渡すとデフォルトでは_line_item.html.erbを参照してiterateする。partial内ではデフォルトでline_item変数にそれが格納される %>
+    <tfoot>
+      <tr>
+        <th colspan="2">Total:</th>
+        <td class="price"><%= number_to_currency(cart.total_price) %></td>
+      </tr>
+    </tfoot>
+  </table>
+  <%= button_to 'Empty cart', cart, method: :delete, data: { confirm: 'Are you sure?' } %>
+</article>

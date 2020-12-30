@@ -34,6 +34,7 @@ header.main {
 }
 
 .content {
+  min-height: 100vh;
   margin: 0;
   padding: 0;
   display: flex;
@@ -83,6 +84,23 @@ header.main {
 
   main {
     padding: 0.5em;
+  }
+}
+
+#cart {
+  article {
+    background: white;
+    border-radius: 0.5em;
+    margin: 1em;
+    padding: 1.414em;
+
+    @media (min-width: 30em) {
+      margin: 0;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
   }
 }
 
