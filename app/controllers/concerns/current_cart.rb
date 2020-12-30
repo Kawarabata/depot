@@ -9,6 +9,6 @@ module CurrentCart
   end
 
   def set_counter
-    @count = session[:counter].nil? ? 0 : @count + 1
+    @count = session[:counter].nil? ? 0 : session[:counter] + 1
   end
 end

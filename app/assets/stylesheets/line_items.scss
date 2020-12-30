@@ -1,3 +1,30 @@
 // Place all the styles related to the LineItems controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+// ネットで見つけた書き方 https://kamranahmed.info/blog/2016/01/30/yellow-fade-technique-in-css/
+// @keyframes line-item-highlight {
+//   from {
+//     background: #8f8;
+//   }
+//
+//   to {
+//     background: none;
+//   }
+// }
+
+@keyframes line-item-highlight {
+  // アニメーション開始時
+  0% {
+    background: #8f8;
+  }
+
+  // アニメーション終了時
+  100% {
+    background: none;
+  }
+}
+
+.line-item-highlight {
+  animation: line-item-highlight 1s;
+}

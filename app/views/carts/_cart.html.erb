@@ -1,7 +1,4 @@
-<article>
-  <% if notice %>
-    <aside id="notoice"><%= notice %></aside>
-  <% end %>
+<% unless cart.line_items.empty? %>
   <h2>Your Cart</h2>
   <table>
     <%= render(cart.line_items) %> <%# LineItemオブジェクトをrenderに渡すとデフォルトでは_line_item.html.erbを参照してiterateする。partial内ではデフォルトでline_item変数にそれが格納される %>
@@ -13,4 +10,4 @@
     </tfoot>
   </table>
   <%= button_to 'Empty cart', cart, method: :delete, data: { confirm: 'Are you sure?' } %>
-</article>
+<% end %>
